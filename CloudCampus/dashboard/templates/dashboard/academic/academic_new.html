@@ -1,0 +1,39 @@
+﻿{% extends 'dashboard/admin-base.html' %}
+{%block content%}   
+
+       
+
+
+
+
+         <div class="row clearfix">
+                
+                <!-- Latest Social Trends -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>ACADEMIC YEARS</h2>
+                            
+                        </div>
+                        <div class="body">
+           
+
+            
+
+                            
+            <form method="POST" action={%url 'academic_new' %}>
+                {% csrf_token %}
+                <input type="texxt" name="name" placeholder="eg:2018-2019" required="true">
+                <input type="submit" value="Create">
+            </form>
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Answered Tickets -->
+            </div>
+
+             {% endblock %}

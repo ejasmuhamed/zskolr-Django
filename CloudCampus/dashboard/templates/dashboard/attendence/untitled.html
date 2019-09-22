@@ -1,0 +1,45 @@
+{% for attendence in attendences %}
+                        {% if attendence.student.semester.number == xsem.number and attendence.student.course.name == xcrs%}
+                        <tr class="check_items_row">
+                            <form method="POST" action="{% url 'attendence_mark' %}" name="frm-{{attendence.id}}">
+                                {% csrf_token %}
+                            <td style="width:20px;">
+                                
+                            </td>
+                            <td>
+                                <input type="text" name="roll_numbr" disabled="true" value="{{attendence.student.roll_number}}">
+                                <input type="text" name="roll_number" value="{{attendence.student.roll_number}}" hidden="true">
+                            </td>
+                            <td><input type="text" name="name" disabled="true" value="{{attendence.student.name}}">
+                                <input type="text" name="name" disabled="true" value="{{attendence.student.name}}" hidden="true">
+                            </td>
+                            
+                            
+                            <td>
+                                <input type="button" name="hr1" id="h1-{{attendence.id}}" onclick="return change(this);" value="{{attendence.h1}}">
+                                <input type="text" name="hour1" id="hour1-{{attendence.id}}"  value="{{attendence.h1}}" hidden="true">
+                            </td>
+                            <td>
+                                <input type="button" name="hr2" id="h2-{{attendence.id}}" onclick="return change(this);" value="{{attendence.h2}}">
+                                <input type="text" name="hour2" id="hour2-{{attendence.id}}"  value="{{attendence.h2}}" hidden="true">
+                            </td>
+                            <td>
+                                <input type="button" name="hr3" id="h3-{{attendence.id}}" onclick="return change(this);" value="{{attendence.h3}}">
+                                <input type="text" name="hour3" id="hour3-{{attendence.id}}"  value="{{attendence.h3}}" hidden="true">
+                            </td>
+                            <td>
+                                <input type="button" name="hr4" id="h4-{{attendence.id}}" onclick="return change(this);" value="{{attendence.h4}}">
+                                <input type="text" name="hour4" id="hour4-{{attendence.id}}"  value="{{attendence.h4}}" hidden="true">
+                            </td>
+                            <td>
+                                <input type="button" name="hr5" id="h5-{{attendence.id}}" onclick="return change(this);" value="{{attendence.h5}}">
+                                <input type="text" name="hour5" id="hour5-{{attendence.id}}"  value="{{attendence.h5}}" hidden="true">
+                            </td>
+                            <td>
+                                <input type="text" name="id" value="{{ attendence.id }}" hidden="true">
+                                <input type="submit" name="update" value="Update" onclick="return changeforsubmit();">
+                            </td>
+                        </form>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}

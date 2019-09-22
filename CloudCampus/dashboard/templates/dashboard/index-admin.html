@@ -1,0 +1,94 @@
+﻿{% extends 'dashboard/admin-base.html' %}
+{%block content%}   
+
+
+            <!-- Widgets -->
+            <div class="row clearfix">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-pink hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">playlist_add_check</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">STUDENTS</div>
+                            <div class="number count-to" data-from="0" data-to="{{ students_counts }}" data-speed="15" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-cyan hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">help</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">COURSES</div>
+                            <div class="number count-to" data-from="0" data-to="{{course_count}}" data-speed="1000" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-light-green hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">forum</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">TEACHERS</div>
+                            <div class="number count-to" data-from="0" data-to="{{ teacher_count }}" data-speed="1000" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-orange hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">person_add</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">STUDENTS</div>
+                            <div class="number count-to" data-from="0" data-to="{{ students_counts }}" data-speed="1000" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row clearfix">
+                
+                <!-- Latest Social Trends -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>COLLEGE NOTIFICATIONS</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="{% url "notification_view" %}">Add/Edit</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            {% for notification in notifications reversed %}
+                            {% if notification.end_date  >= today %}
+                            <li>{{ notification.content }} 
+                            <span class="pull-right"><small>{{ notification.date }}</small></span>
+                            </li>
+                            {% endif %}
+                           {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Answered Tickets -->
+            </div>
+
+
+
+
+
+
+           
+
+                
+{% endblock %}

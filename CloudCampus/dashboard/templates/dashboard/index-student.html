@@ -1,0 +1,44 @@
+﻿{% extends 'dashboard/student-base.html' %}
+{%block content%}   
+ 
+            <div class="row clearfix">
+                
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="body bg-green">
+                            <div class="m-b--35 font-bold">YOUR NOTIFICATIONS</div>
+                            <ul class="dashboard-stat-list">
+                                {% for x in student_notifications %}
+
+                                <li>{{ x.content }}<span class="pull-right"><small>{{ x.date }}</small></span></li>
+
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- #END# Latest Social Trends -->
+                <!-- Answered Tickets -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="body bg-teal">
+                            <div class="font-bold m-b--35">COLLEGE NOTIFICATIONS</div>
+                            <ul class="dashboard-stat-list">
+                                {% for x in notifications %}
+                                <li>{{ x.content }}
+                                    <span class="pull-right"><small>{{ x.date }}</small></span>
+                                    {% endfor %}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Answered Tickets -->
+            </div>
+
+            </div>
+        </div>
+    {% endblock %}

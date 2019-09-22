@@ -1,0 +1,60 @@
+﻿{% extends 'dashboard/teacher-base.html' %}
+{%block content%}   
+ 
+        <div class="container-fluid">
+            <div class="block-header">
+            </div>
+
+            
+            <div class="row clearfix">
+                <!-- Task Info -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>STUDENTS NOTIFICATIONS</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <ul class="">
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            {% for x in cnotifications %}
+
+                                <li>{{ x.content }}<span class="pull-right"><small>{{ x.date }}</small></span></li>
+
+                                {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- #END# Latest Social Trends -->
+                <!-- Answered Tickets -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="body bg-teal">
+                            <div class="font-bold m-b--35">COLLEGE NOTIFICATIONS</div>
+                            <ul class="dashboard-stat-list">
+                                {% for x in notifications %}
+                                <li>{{ x.content }}
+                                    <span class="pull-right"><small>{{ x.date }}</small></span>
+                                    {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Answered Tickets -->
+            </div>
+
+            <div class="row clearfix">
+                <!-- Task Info -->
+                <!-- #END# Task Info -->
+                <!-- Browser Usage -->
+                        
+                <!-- #END# Browser Usage -->
+            </div>
+        </div>
+        {% endblock %}

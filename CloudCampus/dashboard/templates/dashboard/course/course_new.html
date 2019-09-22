@@ -1,0 +1,27 @@
+﻿{% extends 'dashboard/admin-base.html' %}
+{%block content%}   
+
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>CREATE COURSE </h2>
+            </div>
+
+
+
+            <form method="POST" action={%url 'course_new' %}>
+                {% csrf_token %}
+                <input type="texxt" name="name" placeholder="eg:2018-2019" required="true">
+                <input type="submit" value="Create">
+            </form>
+
+
+
+
+            
+            <div class="row clearfix">
+                
+            </div>
+
+            <div class="row clearfix">
+            </div>
+        </div>{% endblock %}

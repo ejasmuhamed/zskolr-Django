@@ -1,0 +1,95 @@
+
+{% extends 'dashboard/teacher-base.html' %}
+{%block content%}   
+
+
+
+
+
+<div class="container-fluid">
+            <div class="block-header">
+                <h2></h2>
+            </div>
+
+
+
+                        <div class="table-responsive">
+                <table id="data-table-basic" class="table table-striped table-vmiddle">
+                    <thead>
+                        <tr>
+                            <th style="width:20px;"></th>
+                            <th>Roll Number</th>
+                            
+                            <th>Name</th>
+                            <th>Type</th>
+
+                            <th>Title</th>
+                            <th>File</th>
+                            <th>To</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        
+                        
+                        {% for x in uploads reversed%}
+                        <tr class="check_items_row">
+                            <form method="POST" action="{% url 'attendence_mark' %}" name="frm-{{attendence.id}}">
+                                {% csrf_token %}
+                            <td style="width:20px;">
+                                
+                            </td>
+                            <td><input type="text" name="name" disabled="true" value="{{x.student.roll_number}}">
+                            </td>
+                            
+                            
+                            <td>
+                                <input type="text" value="{{x.student.name}}">
+                            </td>
+                            <td>
+                                <input type="text" value="{{x.typ}}">
+                            </td>
+                            <td>
+                                {{x.title}}
+                            </td>
+                            <td>
+                                <a href="{{x.file.url}}">Available</a>
+                            </td>
+                            <td>
+                                <input type="text" value="{{x.submited_to}}">
+                            </td>
+                            <td>
+                                {% if attendence.h5 == True%}
+                                <input type="button" value="Present">
+                                {% endif %}
+                                {% if attendence.h5 == False%}
+                                <input type="button" value="Absent">
+                                {% endif %}
+                            </td>
+                        </form>
+                        </tr>
+                        {% endfor %}
+                        
+                        
+                        
+                        
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+            
+            <div class="row clearfix">
+                
+            </div>
+
+            <div class="row clearfix">
+            </div>
+        </div>
+
+
+{% endblock %}

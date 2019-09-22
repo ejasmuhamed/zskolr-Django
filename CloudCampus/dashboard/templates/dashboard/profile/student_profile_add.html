@@ -1,0 +1,68 @@
+﻿{% extends 'dashboard/admin-base.html' %}
+{%block content%}   
+
+       
+
+
+
+
+         <div class="row clearfix">
+                
+                <!-- Latest Social Trends -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>NEW STUDENT</h2>
+                            
+                        </div>
+                        <div class="body">
+           
+
+            
+
+                            <form method="POST" action="{% url "student_profile_add" %}" name="frm" enctype="multipart/form-data" >
+            {% csrf_token %}
+            Name: <input type="text" name="name" required="true"><br>
+            Roll Number: <input type="text" name="roll_number" required="true"><br>
+            Academic Year : 
+            <select name="academic_year" required="true">
+            {% for acyr in academic_years %}
+                <option>{{ acyr.year }}</option>
+            {% endfor %}
+            </select>
+
+             Course: 
+            <select name="course" required="true">
+            {% for crs in courses %}
+                <option>{{ crs.name }}</option>
+            {% endfor %}
+            </select>
+
+             Semester: 
+            <select name="semester" required="true">
+            {% for sem in semesters %}
+                <option>{{ sem.number }}</option>
+            {% endfor %}
+            </select>
+
+            Register Number: <input type="text" name="registration_number" required="true"><br>
+
+            Admission Number: <input type="text" name="admission_number" required="true"><br>
+            Email: <input type="email" name="email_id" required="true"><br>
+            Phone Number: <input type="text" name="phone_number" required="true"><br>
+            Address<input type="address" name="address" required="true"><br>
+            Image: <input type="file" name="img" required="true">
+            <br>
+            <input type="submit" name="submit">
+        </form>
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Answered Tickets -->
+            </div>
+
+             {% endblock %}

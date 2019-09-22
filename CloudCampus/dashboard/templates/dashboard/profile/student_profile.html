@@ -1,0 +1,40 @@
+﻿{% extends 'dashboard/admin-base.html' %}
+{%block content%}   
+
+        <h3><img src="{{student.image.url}}"><br><br><br>
+      Name:&nbsp;&nbsp;&nbsp;&nbsp;   {{student.name}}
+        <br>
+        Course:&nbsp;&nbsp;&nbsp;{{student.course}}
+        <br>
+        Semester: &nbsp;&nbsp;{{student.semester.number}}
+        <br>
+        <br>
+        Admission Number: &nbsp;&nbsp;{{student.admission_number}}
+        <br>
+        Register Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{student.registration_number}}
+        <br>
+       Class Roll Number: &nbsp;&nbsp; {{student.roll_number}}
+        <br>
+        <br><br>
+        Mobile Number:&nbsp;&nbsp;{{student.phone_number}}
+        <br>
+        EMail ID:&nbsp;&nbsp;{{student.email_id}}
+        <br>
+        Address: &nbsp;&nbsp;{{student.address}}
+        <br>
+
+
+</h3>
+<br><br><br>
+
+            
+            <div class="row clearfix">
+                
+            </div>
+
+<br><br><br><br>
+
+            <div class="row clearfix">
+            </div>
+        </div>
+{% endblock %}

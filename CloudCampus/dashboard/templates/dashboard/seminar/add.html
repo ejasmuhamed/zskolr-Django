@@ -1,0 +1,41 @@
+﻿{% extends 'dashboard/student-base.html' %}
+{%block content%}   
+
+
+            <div class="row clearfix">
+                
+                <!-- Latest Social Trends -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>SEMINAR</h2>
+                            
+                        </div>
+                        <div class="body">
+
+                            <form method="POST" action="{% url "seminar_add" %}" name="frm" enctype="multipart/form-data" >
+                            {% csrf_token %}
+                                Title: <br><input type="text" name="title" required="true"><br>
+
+                                Abstarct: <textarea rows="5" name="abstract" class="form-control no-resize auto-growth" placeholder="Please type what you want..." required="true"></textarea>
+                                <select name="teacher">
+                                    {% for teacher in teachers %}
+                                    <option value="{{ teacher.teacher_id }}" required="true">{{ teacher.name }}</option>
+                                    {% endfor %}
+                                </select>
+                                File: <input type="file" name="file" required="true"><br>
+                                <input type="submit" name="submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Answered Tickets -->
+            </div>
+
+
+
+
+        
+
+                
+{% endblock %}

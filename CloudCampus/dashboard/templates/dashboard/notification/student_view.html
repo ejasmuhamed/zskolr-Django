@@ -1,0 +1,42 @@
+﻿{% extends 'dashboard/admin-base.html' %}
+{%block content%}   
+
+       
+
+
+
+
+         <div class="row clearfix">
+                
+                <!-- Latest Social Trends -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>NOTIFICATION (STUDENTS)</h2>
+                            
+                        </div>
+                        <div class="body">
+           
+
+            
+    {% for notification in notifications %}
+                {{ notification.content }}<br>
+                {{notification.course.name}}<br>
+                {{ notification.date }}<br>
+                Untill  - {{ notification.end_date }}<br>
+                <a href="{% url "notification_student_edit" pk=notification.pk %}">EDIT</a>
+                <br><br>
+           {% endfor %}
+           
+           <h2><a href="{% url "notification_student_add" %}"> ADD NEW</h2>
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Answered Tickets -->
+            </div>
+
+             {% endblock %}

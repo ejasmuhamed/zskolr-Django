@@ -1,0 +1,40 @@
+﻿{% extends 'dashboard/admin-base.html' %}
+{%block content%}   
+
+       
+
+
+
+
+         <div class="row clearfix">
+                
+                <!-- Latest Social Trends -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>ACADEMIC YEARS</h2>
+                            
+                        </div>
+                        <div class="body">
+           
+
+            
+
+                            
+          {% for year in acyears %}
+            {{year.year}}
+            <br>
+            {% endfor %}
+
+
+            <a href="{% url "academic_new" %}"><h5>ADD NEW</h5></a>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Answered Tickets -->
+            </div>
+
+             {% endblock %}

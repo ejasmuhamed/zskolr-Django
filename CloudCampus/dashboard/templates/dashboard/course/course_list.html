@@ -1,0 +1,38 @@
+﻿{% extends 'dashboard/admin-base.html' %}
+{%block content%}   
+
+       
+
+
+
+
+         <div class="row clearfix">
+                
+                <!-- Latest Social Trends -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>COURSES</h2>
+                            
+                        </div>
+                        <div class="body">
+           
+
+            {% for course in courses %}
+            {{course.name}}
+            <br>
+            {% endfor %}
+
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Answered Tickets -->
+
+            <a href="{% url "course_new" %}"><h2>ADD NEW</h2></a>
+            </div>
+
+             {% endblock %}

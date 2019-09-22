@@ -1,0 +1,48 @@
+﻿
+{% extends 'dashboard/admin-base.html' %}
+{%block content%}   
+
+       
+
+
+
+
+         <div class="row clearfix">
+                
+                <!-- Latest Social Trends -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>NOTIFICATION (STUDENTS)</h2>
+                            
+                        </div>
+                        <div class="body">
+           
+<form method="POST" action="{% url "notification_student_add" %}">
+               {% csrf_token %}
+               <input type="text" name="content" size="50" required="true"><br>
+
+                <div class="col-sm-6">
+                            <br>
+               <select  name='course' required="true">
+                {% for x in courses %}
+                    <option value="{{ x.name }}">{{ x.name }}</option>
+                {% endfor %}
+                </select>
+                </div><br><br><br><br><br><br>
+
+               <input type="date" name="end_date" required="true"><br><br>
+               <input type="submit" name="submit">
+           </form>
+           
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Answered Tickets -->
+            </div>
+
+             {% endblock %}

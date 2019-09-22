@@ -1,0 +1,45 @@
+{% extends 'dashboard/admin-base.html' %}
+{%block content%}   
+
+       
+
+
+
+
+         <div class="row clearfix">
+                
+                <!-- Latest Social Trends -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>SUBJECTS</h2>
+                            
+                        </div>
+                        <div class="body">
+           
+
+            
+
+           <form method="POST" action={%url 'subject_new' %}>
+                {% csrf_token %}
+                 <select name="course">
+                    {% for course in courses %}
+                      <option value="{{course.name}}" required="true">{{course.name}}</option>
+                    {% endfor %}
+                </select> 
+                <input type="text" name="name" placeholder="eg: C++ " required="true">
+                <input type="submit" value="Create">
+            </form>
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Answered Tickets -->
+
+            <a href="{% url "subject_new" %}"><h2>ADD NEW</h2></a>
+            </div>
+
+             {% endblock %}

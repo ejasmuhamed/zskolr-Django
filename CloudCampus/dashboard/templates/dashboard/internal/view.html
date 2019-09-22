@@ -1,0 +1,117 @@
+﻿
+{% extends 'dashboard/student-base.html' %}
+{%block content%}   
+
+
+
+
+
+<div class="container-fluid">
+            <div class="block-header">
+                <h2>ACADEMIC YEARS</h2>
+            </div>
+
+
+
+                        <div class="table-responsive">
+                <table id="data-table-basic" class="table table-striped table-vmiddle">
+                    <thead>
+                        <tr>
+                            <th style="width:20px;"></th>
+                            <th data-column-id="id" data-type="numeric">Sr No.</th>
+                            <th>Date</th>
+                            
+                            <th>Hour 1</th>
+                            <th>Hour 2</th>
+                            <th>Hour 3</th>
+                            <th>Hour 4</th>
+                            <th>Hour 5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        
+                        
+                        {% for attendence in attendences %}
+                        {% if attendence.student.roll_number == roll_number %}
+                        <tr class="check_items_row">
+                            <form method="POST" action="{% url 'attendence_mark' %}" name="frm-{{attendence.id}}">
+                                {% csrf_token %}
+                            <td style="width:20px;">
+                                
+                            </td>
+                            <td>
+                                <input type="text" name="roll_numbr" disabled="true" value="{{attendence.student.roll_number}}">
+                            </td>
+                            <td><input type="text" name="name" disabled="true" value="{{attendence.date}}">
+                            </td>
+                            
+                            
+                            <td>
+                                {% if attendence.h1 == True%}
+                                <input type="button" value="Present">
+                                {% endif %}
+                                {% if attendence.h1 == False%}
+                                <input type="button" value="Absent">
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if attendence.h2 == True%}
+                                <input type="button" value="Present">
+                                {% endif %}
+                                {% if attendence.h2 == False%}
+                                <input type="button" value="Absent">
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if attendence.h3 == True%}
+                                <input type="button" value="Present">
+                                {% endif %}
+                                {% if attendence.h3 == False%}
+                                <input type="button" value="Absent">
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if attendence.h4 == True%}
+                                <input type="button" value="Present">
+                                {% endif %}
+                                {% if attendence.h4 == False%}
+                                <input type="button" value="Absent">
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if attendence.h5 == True%}
+                                <input type="button" value="Present">
+                                {% endif %}
+                                {% if attendence.h5 == False%}
+                                <input type="button" value="Absent">
+                                {% endif %}
+                            </td>
+                        </form>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                        
+                        
+                        
+                        
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+            
+            <div class="row clearfix">
+                
+            </div>
+
+            <div class="row clearfix">
+            </div>
+        </div>
+
+
+{% endblock %}

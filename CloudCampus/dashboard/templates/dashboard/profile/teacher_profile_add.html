@@ -1,0 +1,98 @@
+{% extends 'dashboard/admin-base.html' %}
+{%block content%}   
+
+
+            <!-- Widgets -->
+            <div class="row clearfix">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-pink hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">playlist_add_check</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">STUDENTS</div>
+                            <div class="number count-to" data-from="0" data-to="{{ students_counts }}" data-speed="15" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-cyan hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">help</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">COURSES</div>
+                            <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-light-green hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">forum</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">TEACHERS</div>
+                            <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-orange hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">person_add</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">STUDENTS</div>
+                            <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row clearfix">
+                
+                <!-- Latest Social Trends -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>ADD TEACHER</h2>
+                            
+                        </div>
+                        <div class="body">
+
+                            <form method="POST" action="{% url "teacher_profile_add" %}" name="frm" enctype="multipart/form-data" >
+            {% csrf_token %}
+            Name: <input type="text" name="name" required="true"><br>
+            Teacher ID: <input type="text" name="teacherid" required="true"><br>
+            Department : 
+            <select name="dept" required="true">
+            {% for dept in departments %}
+                <option>{{ dept.name }}</option>
+            {% endfor %}
+            </select>
+
+            Email: <input type="email" name="emailid" required="true"><br>
+            Address<input type="address" name="address" required="true"><br>
+            Image: <input type="file" name="img" required="true">
+            <br>
+            <input type="submit" name="submit">
+        </form>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Answered Tickets -->
+            </div>
+
+
+
+
+
+
+            
+
+                
+{% endblock %}
